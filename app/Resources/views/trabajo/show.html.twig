@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Trabajo</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ trabajo.id }}</td>
+            </tr>
+            <tr>
+                <th>Fecha</th>
+                <td>{{ trabajo.fecha }}</td>
+            </tr>
+            <tr>
+                <th>Precio</th>
+                <td>{{ trabajo.precio }}</td>
+            </tr>
+            <tr>
+                <th>Descripcion</th>
+                <td>{{ trabajo.descripcion }}</td>
+            </tr>
+            <tr>
+                <th>Pagoid</th>
+                <td>{{ trabajo.pagoId }}</td>
+            </tr>
+            <tr>
+                <th>Artistaid</th>
+                <td>{{ trabajo.artistaId }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('trabajos_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('trabajos_edit', { 'id': trabajo.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

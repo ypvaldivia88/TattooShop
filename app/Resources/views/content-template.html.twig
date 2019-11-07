@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+{% block title %}{#TituloPagina#}{% endblock %}
+{% block breadcrumb %}
+<h3 class="text-themecolor m-b-0 m-t-0"></h3>
+<ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="{{ path('homepage') }}">Inicio</a></li>
+    <li class="breadcrumb-item"><a href="{{ path('artistas_index') }}">{#Entidad#}</a></li>
+    <li class="breadcrumb-item active">{#Accion#}</li>
+</ol>
+{% endblock %}
+
+{% block body %}
+
+<div class="card">
+
+    <div class="card-header">
+        <h2>{#TituloContenido#}</h2>
+    </div>
+    
+    <div class="card-body">
+        {#Contenido#}
+    </div>
+
+    <div class="card-footer">
+        <a href="{{ path('artistas_new') }}" class="btn waves-effect waves-light btn-primary"><i class="fa fa-plus"></i> Crear nuevo artista</a>
+
+        {{ form_start(delete_form) }}
+        <div class="button-group">
+            <a href="{{ path('_edit', { 'id': item.id }) }}" class="btn waves-effect waves-light btn-warning"><i class="fa fa-edit"></i> Editar</a>
+            <a href="{{ path('_index') }}" class="btn waves-effect waves-light btn-secondary">Ir al Listado</a>
+            <button type="submit" class="btn waves-effect waves-light btn-danger pull-right"><i class="fa fa-eraser"></i> Eliminar</button>
+        </div>
+        {{ form_end(delete_form) }}
+    </div>
+</div>    
+{% endblock %}
+
+{% block javascripts %}
+{{ parent() }}
+    <!-- This is data table -->
+    <script src="{{ asset('public/plugins/datatables/jquery.dataTables.min.js') }}"></script>
+
+    <script>
+    $(document).ready(function() {
+        $('#DT_').DataTable();
+    });
+    </script>
+
+{% endblock %}

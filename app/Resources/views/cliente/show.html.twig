@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+{% block title %}Detalles de Cliente{% endblock %}
+{% block breadcrumb %}
+<h3 class="text-themecolor m-b-0 m-t-0">Clientes</h3>
+<ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="{{ path('homepage') }}">Inicio</a></li>
+    <li class="breadcrumb-item"><a href="{{ path('clientes_index') }}">Clientes</a></li>
+    <li class="breadcrumb-item active">Detalles</li>
+</ol>
+{% endblock %}
+
+{% block body %}
+
+<div class="card">
+
+    <div class="card-header">
+        <h2>Detalles de cliente</h2>
+    </div>
+    
+    <div class="card-body">
+        <table class="table">
+            <tbody>
+                <tr>
+                    <th>Id</th>
+                    <td>{{ cliente.id }}</td>
+                </tr>
+                <tr>
+                    <th>Nombre</th>
+                    <td>{{ cliente.nombre }}</td>
+                </tr>
+                <tr>
+                    <th>Telefono</th>
+                    <td>{{ cliente.telefono }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="card-footer">
+        {{ form_start(delete_form) }}
+        <div class="button-group">
+            <a href="{{ path('clientes_edit', { 'id': cliente.id }) }}" class="btn waves-effect waves-light btn-warning"><i class="fa fa-edit"></i> Editar</a>
+            <a href="{{ path('clientes_index') }}" class="btn waves-effect waves-light btn-secondary">Ir al Listado</a>
+            <button type="submit" class="btn waves-effect waves-light btn-danger pull-right"><i class="fa fa-eraser"></i> Eliminar</button>
+        </div>
+        {{ form_end(delete_form) }}
+    </div>
+</div>    
+{% endblock %}

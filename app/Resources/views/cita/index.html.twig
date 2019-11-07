@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Cita list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Fecha</th>
+                <th>Deposito</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for citum in citas %}
+            <tr>
+                <td><a href="{{ path('citas_show', { 'id': citum.id }) }}">{{ citum.id }}</a></td>
+                <td>{{ citum.fecha|date('Y-m-d') }}</td>
+                <td>{{ citum.deposito }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('citas_show', { 'id': citum.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('citas_edit', { 'id': citum.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('citas_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}
