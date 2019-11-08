@@ -12,14 +12,14 @@ use AppBundle\Form\PagoType;
 /**
  * Pago controller.
  *
- * @Route("/pagos")
+ * @Route("/pago")
  */
 class PagoController extends Controller
 {
     /**
      * Lists all Pago entities.
      *
-     * @Route("/", name="pagos_index")
+     * @Route("/", name="pago_index")
      * @Method("GET")
      */
     public function indexAction()
@@ -36,7 +36,7 @@ class PagoController extends Controller
     /**
      * Creates a new Pago entity.
      *
-     * @Route("/new", name="pagos_new")
+     * @Route("/new", name="pago_new")
      * @Method({"GET", "POST"})
      */
     public function newAction(Request $request)
@@ -50,7 +50,7 @@ class PagoController extends Controller
             $em->persist($pago);
             $em->flush();
 
-            return $this->redirectToRoute('pagos_show', array('id' => $pago->getId()));
+            return $this->redirectToRoute('pago_show', array('id' => $pago->getId()));
         }
 
         return $this->render('pago/new.html.twig', array(
@@ -62,7 +62,7 @@ class PagoController extends Controller
     /**
      * Finds and displays a Pago entity.
      *
-     * @Route("/{id}", name="pagos_show")
+     * @Route("/{id}", name="pago_show")
      * @Method("GET")
      */
     public function showAction(Pago $pago)
@@ -78,7 +78,7 @@ class PagoController extends Controller
     /**
      * Displays a form to edit an existing Pago entity.
      *
-     * @Route("/{id}/edit", name="pagos_edit")
+     * @Route("/{id}/edit", name="pago_edit")
      * @Method({"GET", "POST"})
      */
     public function editAction(Request $request, Pago $pago)
@@ -92,7 +92,7 @@ class PagoController extends Controller
             $em->persist($pago);
             $em->flush();
 
-            return $this->redirectToRoute('pagos_edit', array('id' => $pago->getId()));
+            return $this->redirectToRoute('pago_edit', array('id' => $pago->getId()));
         }
 
         return $this->render('pago/edit.html.twig', array(
@@ -105,7 +105,7 @@ class PagoController extends Controller
     /**
      * Deletes a Pago entity.
      *
-     * @Route("/{id}", name="pagos_delete")
+     * @Route("/{id}", name="pago_delete")
      * @Method("DELETE")
      */
     public function deleteAction(Request $request, Pago $pago)
@@ -119,7 +119,7 @@ class PagoController extends Controller
             $em->flush();
         }
 
-        return $this->redirectToRoute('pagos_index');
+        return $this->redirectToRoute('pago_index');
     }
 
     /**
@@ -132,7 +132,7 @@ class PagoController extends Controller
     private function createDeleteForm(Pago $pago)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('pagos_delete', array('id' => $pago->getId())))
+            ->setAction($this->generateUrl('pago_delete', array('id' => $pago->getId())))
             ->setMethod('DELETE')
             ->getForm()
         ;

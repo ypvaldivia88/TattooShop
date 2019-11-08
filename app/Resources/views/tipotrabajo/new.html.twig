@@ -1,43 +1,16 @@
 {% extends 'base.html.twig' %}
-{% block title %}Nuevo Tipo de Trabajo{% endblock %}
-{% block breadcrumb %}
-<h3 class="text-themecolor m-b-0 m-t-0">Tipos de Trabajo</h3>
-<ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="{{ path('homepage') }}">Inicio</a></li>
-    <li class="breadcrumb-item"><a href="{{ path('tipos-trabajo_index') }}">Tipos de Trabajo</a></li>
-    <li class="breadcrumb-item active">Crear</li>
-</ol>
-{% endblock %}
 
 {% block body %}
+    <h1>TipoTrabajo creation</h1>
 
-<div class="card">
-
-    <div class="card-header">
-        <h2>Crear nuevo tipo de trabajo</h2>
-    </div>
-    
-    <div class="card-body">
-
-        {{ form_start(form, { 'attr' : {'role' : 'form', 'class' : 'form-material m-t-40'} }) }}
-                
-        <div class="col-md-6">
-            <div class="form-group">
-                {{ form_widget(form.nombre, { 'attr' :{'class' : 'form-control', 'placeholder' : 'Nombre'} }) }}
-                <span class="text-danger">{{ form_errors(form.nombre) }}</span>
-            </div>
-        </div>   
-        
-    </div>
-
-    <div class="card-footer">
-        <div class="button-group">
-            {{ form_widget(form.save, {'label' : 'Crear tipo de trabajo', 'attr' : {'class' : 'btn waves-effect waves-light btn-success'}}) }}
-            <a href="{{ path('tipos-trabajo_index') }}" class="btn waves-effect waves-light btn-secondary">Ir al Listado</a>
-        </div>
-    </div>
-
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <input type="submit" value="Create" />
     {{ form_end(form) }}
-</div>    
-{% endblock %}
 
+    <ul>
+        <li>
+            <a href="{{ path('tipotrabajo_index') }}">Back to the list</a>
+        </li>
+    </ul>
+{% endblock %}

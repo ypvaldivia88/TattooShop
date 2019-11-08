@@ -23,7 +23,6 @@ class TrabajoType extends AbstractType
             ->add('cita')
             ->add('artista')
             ->add('pago')
-            ->add('save', 'submit')
         ;
     }
     

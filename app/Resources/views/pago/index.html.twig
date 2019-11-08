@@ -16,17 +16,17 @@
         <tbody>
         {% for pago in pagos %}
             <tr>
-                <td><a href="{{ path('pagos_show', { 'id': pago.id }) }}">{{ pago.id }}</a></td>
+                <td><a href="{{ path('pago_show', { 'id': pago.id }) }}">{{ pago.id }}</a></td>
                 <td>{{ pago.fechaInicial }}</td>
                 <td>{{ pago.fechaFinal }}</td>
                 <td>{{ pago.efectivo }}</td>
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('pagos_show', { 'id': pago.id }) }}">show</a>
+                            <a href="{{ path('pago_show', { 'id': pago.id }) }}">show</a>
                         </li>
                         <li>
-                            <a href="{{ path('pagos_edit', { 'id': pago.id }) }}">edit</a>
+                            <a href="{{ path('pago_edit', { 'id': pago.id }) }}">edit</a>
                         </li>
                     </ul>
                 </td>
@@ -37,7 +37,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('pagos_new') }}">Create a new entry</a>
+            <a href="{{ path('pago_new') }}">Create a new entry</a>
         </li>
     </ul>
 {% endblock %}

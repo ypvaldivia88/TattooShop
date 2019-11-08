@@ -12,14 +12,14 @@ use AppBundle\Form\ClienteType;
 /**
  * Cliente controller.
  *
- * @Route("/clientes")
+ * @Route("/cliente")
  */
 class ClienteController extends Controller
 {
     /**
      * Lists all Cliente entities.
      *
-     * @Route("/", name="clientes_index")
+     * @Route("/", name="cliente_index")
      * @Method("GET")
      */
     public function indexAction()
@@ -36,7 +36,7 @@ class ClienteController extends Controller
     /**
      * Creates a new Cliente entity.
      *
-     * @Route("/new", name="clientes_new")
+     * @Route("/new", name="cliente_new")
      * @Method({"GET", "POST"})
      */
     public function newAction(Request $request)
@@ -50,7 +50,7 @@ class ClienteController extends Controller
             $em->persist($cliente);
             $em->flush();
 
-            return $this->redirectToRoute('clientes_show', array('id' => $cliente->getId()));
+            return $this->redirectToRoute('cliente_show', array('id' => $cliente->getId()));
         }
 
         return $this->render('cliente/new.html.twig', array(
@@ -62,7 +62,7 @@ class ClienteController extends Controller
     /**
      * Finds and displays a Cliente entity.
      *
-     * @Route("/{id}", name="clientes_show")
+     * @Route("/{id}", name="cliente_show")
      * @Method("GET")
      */
     public function showAction(Cliente $cliente)
@@ -78,7 +78,7 @@ class ClienteController extends Controller
     /**
      * Displays a form to edit an existing Cliente entity.
      *
-     * @Route("/{id}/edit", name="clientes_edit")
+     * @Route("/{id}/edit", name="cliente_edit")
      * @Method({"GET", "POST"})
      */
     public function editAction(Request $request, Cliente $cliente)
@@ -92,7 +92,7 @@ class ClienteController extends Controller
             $em->persist($cliente);
             $em->flush();
 
-            return $this->redirectToRoute('clientes_edit', array('id' => $cliente->getId()));
+            return $this->redirectToRoute('cliente_edit', array('id' => $cliente->getId()));
         }
 
         return $this->render('cliente/edit.html.twig', array(
@@ -105,7 +105,7 @@ class ClienteController extends Controller
     /**
      * Deletes a Cliente entity.
      *
-     * @Route("/{id}", name="clientes_delete")
+     * @Route("/{id}", name="cliente_delete")
      * @Method("DELETE")
      */
     public function deleteAction(Request $request, Cliente $cliente)
@@ -119,7 +119,7 @@ class ClienteController extends Controller
             $em->flush();
         }
 
-        return $this->redirectToRoute('clientes_index');
+        return $this->redirectToRoute('cliente_index');
     }
 
     /**
@@ -132,7 +132,7 @@ class ClienteController extends Controller
     private function createDeleteForm(Cliente $cliente)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('clientes_delete', array('id' => $cliente->getId())))
+            ->setAction($this->generateUrl('cliente_delete', array('id' => $cliente->getId())))
             ->setMethod('DELETE')
             ->getForm()
         ;

@@ -12,14 +12,14 @@ use AppBundle\Form\ArtistaType;
 /**
  * Artista controller.
  *
- * @Route("/artistas")
+ * @Route("/artista")
  */
 class ArtistaController extends Controller
 {
     /**
      * Lists all Artista entities.
      *
-     * @Route("/", name="artistas_index")
+     * @Route("/", name="artista_index")
      * @Method("GET")
      */
     public function indexAction()
@@ -36,7 +36,7 @@ class ArtistaController extends Controller
     /**
      * Creates a new Artista entity.
      *
-     * @Route("/new", name="artistas_new")
+     * @Route("/new", name="artista_new")
      * @Method({"GET", "POST"})
      */
     public function newAction(Request $request)
@@ -50,7 +50,7 @@ class ArtistaController extends Controller
             $em->persist($artistum);
             $em->flush();
 
-            return $this->redirectToRoute('artistas_show', array('id' => $artistum->getId()));
+            return $this->redirectToRoute('artista_show', array('id' => $artistum->getId()));
         }
 
         return $this->render('artista/new.html.twig', array(
@@ -62,7 +62,7 @@ class ArtistaController extends Controller
     /**
      * Finds and displays a Artista entity.
      *
-     * @Route("/{id}", name="artistas_show")
+     * @Route("/{id}", name="artista_show")
      * @Method("GET")
      */
     public function showAction(Artista $artistum)
@@ -78,7 +78,7 @@ class ArtistaController extends Controller
     /**
      * Displays a form to edit an existing Artista entity.
      *
-     * @Route("/{id}/edit", name="artistas_edit")
+     * @Route("/{id}/edit", name="artista_edit")
      * @Method({"GET", "POST"})
      */
     public function editAction(Request $request, Artista $artistum)
@@ -92,7 +92,7 @@ class ArtistaController extends Controller
             $em->persist($artistum);
             $em->flush();
 
-            return $this->redirectToRoute('artistas_edit', array('id' => $artistum->getId()));
+            return $this->redirectToRoute('artista_edit', array('id' => $artistum->getId()));
         }
 
         return $this->render('artista/edit.html.twig', array(
@@ -105,7 +105,7 @@ class ArtistaController extends Controller
     /**
      * Deletes a Artista entity.
      *
-     * @Route("/{id}", name="artistas_delete")
+     * @Route("/{id}", name="artista_delete")
      * @Method("DELETE")
      */
     public function deleteAction(Request $request, Artista $artistum)
@@ -119,7 +119,7 @@ class ArtistaController extends Controller
             $em->flush();
         }
 
-        return $this->redirectToRoute('artistas_index');
+        return $this->redirectToRoute('artista_index');
     }
 
     /**
@@ -132,7 +132,7 @@ class ArtistaController extends Controller
     private function createDeleteForm(Artista $artistum)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('artistas_delete', array('id' => $artistum->getId())))
+            ->setAction($this->generateUrl('artista_delete', array('id' => $artistum->getId())))
             ->setMethod('DELETE')
             ->getForm()
         ;

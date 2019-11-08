@@ -1,72 +1,55 @@
 {% extends 'base.html.twig' %}
-{% block title %}Usuarios{% endblock %}
-{% block breadcrumb %}
-<h3 class="text-themecolor m-b-0 m-t-0">Usuarios</h3>
-<ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="{{ path('homepage') }}">Inicio</a></li>
-    <li class="breadcrumb-item active">Usuarios</li>
-</ol>
-{% endblock %}
 
 {% block body %}
+    <h1>User list</h1>
 
-<div class="card">
-    <div class="card-header">
-        <h2>Listado de usuarios</h2>
-    </div>
-    <div class="card-body">
-        <div class="table-responsive">
-            <table id="DT_Usuarios" class="table table-bordered table-striped">
-                <thead>
-                    <tr>
-                        <th>Usuario</th>
-                        <th>Nombre</th>
-                        <th>Apellidos</th>
-                        <th>Correo</th>
-                        <th>Roles</th>
-                        <th>Activo</th>
-                        <th>Acciones</th>
-                    </tr>
-                </thead>
-                <tbody>
-                {% for user in users %}
-                    <tr>
-                        <td>{{ user.username }}</td>
-                        <td>{{ user.firstName }}</td>
-                        <td>{{ user.lastName }}</td>
-                        <td>{{ user.email }}</td>
-                        <td>{{ user.role }}</td>
-                        <td>{% if user.isActive %}Yes{% else %}No{% endif %}</td>
-                        <td>
-                            <div class="button-group">
-                                <a title="Detalles" href="{{ path('users_show', { 'id': user.id }) }}" class="btn btn-xs btn-info"><i class="fa fa-eye"></i></a>
-                                <a title="Editar" href="{{ path('users_edit', { 'id': user.id }) }}" class="btn btn-xs btn-warning"><i class="fa fa-edit"></i></a>
-                                <a title="Eliminar" href="{{ path('users_delete', { 'id': user.id }) }}" class="btn btn-xs btn-danger"><i class="fa fa-eraser"></i></a>
-                            </div>
-                        </td>
-                    </tr>
-                {% endfor %}                                          
-                </tbody>
-            </table>
-        </div>
-    </div>
-    <div class="card-footer">
-        <div class="button-group">
-            <a href="{{ path('users_new') }}" class="btn waves-effect waves-light btn-primary"><i class="fa fa-plus"></i> Crear nuevo usuario</a>
-        </div>
-    </div>
-</div>
-{% endblock %}
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Username</th>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Email</th>
+                <th>Password</th>
+                <th>Role</th>
+                <th>Isactive</th>
+                <th>Createdat</th>
+                <th>Updatedat</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for user in users %}
+            <tr>
+                <td><a href="{{ path('user_show', { 'id': user.id }) }}">{{ user.id }}</a></td>
+                <td>{{ user.username }}</td>
+                <td>{{ user.firstName }}</td>
+                <td>{{ user.lastName }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.password }}</td>
+                <td>{{ user.role }}</td>
+                <td>{% if user.isActive %}Yes{% else %}No{% endif %}</td>
+                <td>{% if user.createdAt %}{{ user.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if user.updatedAt %}{{ user.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('user_show', { 'id': user.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('user_edit', { 'id': user.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
 
-{% block javascripts %}
-{{ parent() }}
-    <!-- This is data table -->
-    <script src="{{ asset('public/plugins/datatables/jquery.dataTables.min.js') }}"></script>
-
-    <script>
-    $(document).ready(function() {
-        $('#DT_Usuarios').DataTable();
-    });
-    </script>
-
+    <ul>
+        <li>
+            <a href="{{ path('user_new') }}">Create a new entry</a>
+        </li>
+    </ul>
 {% endblock %}

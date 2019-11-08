@@ -12,14 +12,14 @@ use AppBundle\Form\CitaType;
 /**
  * Cita controller.
  *
- * @Route("/citas")
+ * @Route("/cita")
  */
 class CitaController extends Controller
 {
     /**
      * Lists all Cita entities.
      *
-     * @Route("/", name="citas_index")
+     * @Route("/", name="cita_index")
      * @Method("GET")
      */
     public function indexAction()
@@ -36,7 +36,7 @@ class CitaController extends Controller
     /**
      * Creates a new Cita entity.
      *
-     * @Route("/new", name="citas_new")
+     * @Route("/new", name="cita_new")
      * @Method({"GET", "POST"})
      */
     public function newAction(Request $request)
@@ -50,7 +50,7 @@ class CitaController extends Controller
             $em->persist($citum);
             $em->flush();
 
-            return $this->redirectToRoute('citas_show', array('id' => $citum->getId()));
+            return $this->redirectToRoute('cita_show', array('id' => $citum->getId()));
         }
 
         return $this->render('cita/new.html.twig', array(
@@ -62,7 +62,7 @@ class CitaController extends Controller
     /**
      * Finds and displays a Cita entity.
      *
-     * @Route("/{id}", name="citas_show")
+     * @Route("/{id}", name="cita_show")
      * @Method("GET")
      */
     public function showAction(Cita $citum)
@@ -78,7 +78,7 @@ class CitaController extends Controller
     /**
      * Displays a form to edit an existing Cita entity.
      *
-     * @Route("/{id}/edit", name="citas_edit")
+     * @Route("/{id}/edit", name="cita_edit")
      * @Method({"GET", "POST"})
      */
     public function editAction(Request $request, Cita $citum)
@@ -92,7 +92,7 @@ class CitaController extends Controller
             $em->persist($citum);
             $em->flush();
 
-            return $this->redirectToRoute('citas_edit', array('id' => $citum->getId()));
+            return $this->redirectToRoute('cita_edit', array('id' => $citum->getId()));
         }
 
         return $this->render('cita/edit.html.twig', array(
@@ -105,7 +105,7 @@ class CitaController extends Controller
     /**
      * Deletes a Cita entity.
      *
-     * @Route("/{id}", name="citas_delete")
+     * @Route("/{id}", name="cita_delete")
      * @Method("DELETE")
      */
     public function deleteAction(Request $request, Cita $citum)
@@ -119,7 +119,7 @@ class CitaController extends Controller
             $em->flush();
         }
 
-        return $this->redirectToRoute('citas_index');
+        return $this->redirectToRoute('cita_index');
     }
 
     /**
@@ -132,7 +132,7 @@ class CitaController extends Controller
     private function createDeleteForm(Cita $citum)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('citas_delete', array('id' => $citum->getId())))
+            ->setAction($this->generateUrl('cita_delete', array('id' => $citum->getId())))
             ->setMethod('DELETE')
             ->getForm()
         ;

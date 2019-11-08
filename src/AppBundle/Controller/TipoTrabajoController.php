@@ -12,14 +12,14 @@ use AppBundle\Form\TipoTrabajoType;
 /**
  * TipoTrabajo controller.
  *
- * @Route("/tipos-trabajo")
+ * @Route("/tipotrabajo")
  */
 class TipoTrabajoController extends Controller
 {
     /**
      * Lists all TipoTrabajo entities.
      *
-     * @Route("/", name="tipos-trabajo_index")
+     * @Route("/", name="tipotrabajo_index")
      * @Method("GET")
      */
     public function indexAction()
@@ -36,7 +36,7 @@ class TipoTrabajoController extends Controller
     /**
      * Creates a new TipoTrabajo entity.
      *
-     * @Route("/new", name="tipos-trabajo_new")
+     * @Route("/new", name="tipotrabajo_new")
      * @Method({"GET", "POST"})
      */
     public function newAction(Request $request)
@@ -50,7 +50,7 @@ class TipoTrabajoController extends Controller
             $em->persist($tipoTrabajo);
             $em->flush();
 
-            return $this->redirectToRoute('tipos-trabajo_show', array('id' => $tipoTrabajo->getId()));
+            return $this->redirectToRoute('tipotrabajo_show', array('id' => $tipoTrabajo->getId()));
         }
 
         return $this->render('tipotrabajo/new.html.twig', array(
@@ -62,7 +62,7 @@ class TipoTrabajoController extends Controller
     /**
      * Finds and displays a TipoTrabajo entity.
      *
-     * @Route("/{id}", name="tipos-trabajo_show")
+     * @Route("/{id}", name="tipotrabajo_show")
      * @Method("GET")
      */
     public function showAction(TipoTrabajo $tipoTrabajo)
@@ -78,7 +78,7 @@ class TipoTrabajoController extends Controller
     /**
      * Displays a form to edit an existing TipoTrabajo entity.
      *
-     * @Route("/{id}/edit", name="tipos-trabajo_edit")
+     * @Route("/{id}/edit", name="tipotrabajo_edit")
      * @Method({"GET", "POST"})
      */
     public function editAction(Request $request, TipoTrabajo $tipoTrabajo)
@@ -92,7 +92,7 @@ class TipoTrabajoController extends Controller
             $em->persist($tipoTrabajo);
             $em->flush();
 
-            return $this->redirectToRoute('tipos-trabajo_edit', array('id' => $tipoTrabajo->getId()));
+            return $this->redirectToRoute('tipotrabajo_edit', array('id' => $tipoTrabajo->getId()));
         }
 
         return $this->render('tipotrabajo/edit.html.twig', array(
@@ -105,7 +105,7 @@ class TipoTrabajoController extends Controller
     /**
      * Deletes a TipoTrabajo entity.
      *
-     * @Route("/{id}", name="tipos-trabajo_delete")
+     * @Route("/{id}", name="tipotrabajo_delete")
      * @Method("DELETE")
      */
     public function deleteAction(Request $request, TipoTrabajo $tipoTrabajo)
@@ -119,7 +119,7 @@ class TipoTrabajoController extends Controller
             $em->flush();
         }
 
-        return $this->redirectToRoute('tipos-trabajo_index');
+        return $this->redirectToRoute('tipotrabajo_index');
     }
 
     /**
@@ -132,7 +132,7 @@ class TipoTrabajoController extends Controller
     private function createDeleteForm(TipoTrabajo $tipoTrabajo)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('tipos-trabajo_delete', array('id' => $tipoTrabajo->getId())))
+            ->setAction($this->generateUrl('tipotrabajo_delete', array('id' => $tipoTrabajo->getId())))
             ->setMethod('DELETE')
             ->getForm()
         ;

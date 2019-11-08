@@ -15,12 +15,11 @@ class CitaType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('fecha','datetime')
+            ->add('fecha')
             ->add('deposito')
             ->add('cliente')
             ->add('tipo_trabajo')
             ->add('artista')
-            ->add('save', 'submit')
         ;
     }
     

@@ -16,7 +16,6 @@ class ArtistaType extends AbstractType
     {
         $builder
             ->add('nombre')
-            ->add('save', 'submit')
         ;
     }
     

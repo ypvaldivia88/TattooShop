@@ -15,16 +15,16 @@
         <tbody>
         {% for citum in citas %}
             <tr>
-                <td><a href="{{ path('citas_show', { 'id': citum.id }) }}">{{ citum.id }}</a></td>
-                <td>{{ citum.fecha|date('Y-m-d') }}</td>
+                <td><a href="{{ path('cita_show', { 'id': citum.id }) }}">{{ citum.id }}</a></td>
+                <td>{{ citum.fecha }}</td>
                 <td>{{ citum.deposito }}</td>
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('citas_show', { 'id': citum.id }) }}">show</a>
+                            <a href="{{ path('cita_show', { 'id': citum.id }) }}">show</a>
                         </li>
                         <li>
-                            <a href="{{ path('citas_edit', { 'id': citum.id }) }}">edit</a>
+                            <a href="{{ path('cita_edit', { 'id': citum.id }) }}">edit</a>
                         </li>
                     </ul>
                 </td>
@@ -35,7 +35,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('citas_new') }}">Create a new entry</a>
+            <a href="{{ path('cita_new') }}">Create a new entry</a>
         </li>
     </ul>
 {% endblock %}

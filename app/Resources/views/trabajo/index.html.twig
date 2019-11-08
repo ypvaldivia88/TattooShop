@@ -18,7 +18,7 @@
         <tbody>
         {% for trabajo in trabajos %}
             <tr>
-                <td><a href="{{ path('trabajos_show', { 'id': trabajo.id }) }}">{{ trabajo.id }}</a></td>
+                <td><a href="{{ path('trabajo_show', { 'id': trabajo.id }) }}">{{ trabajo.id }}</a></td>
                 <td>{{ trabajo.fecha }}</td>
                 <td>{{ trabajo.precio }}</td>
                 <td>{{ trabajo.descripcion }}</td>
@@ -27,10 +27,10 @@
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('trabajos_show', { 'id': trabajo.id }) }}">show</a>
+                            <a href="{{ path('trabajo_show', { 'id': trabajo.id }) }}">show</a>
                         </li>
                         <li>
-                            <a href="{{ path('trabajos_edit', { 'id': trabajo.id }) }}">edit</a>
+                            <a href="{{ path('trabajo_edit', { 'id': trabajo.id }) }}">edit</a>
                         </li>
                     </ul>
                 </td>
@@ -41,7 +41,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('trabajos_new') }}">Create a new entry</a>
+            <a href="{{ path('trabajo_new') }}">Create a new entry</a>
         </li>
     </ul>
 {% endblock %}
