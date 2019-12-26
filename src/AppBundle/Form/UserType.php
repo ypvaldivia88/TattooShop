@@ -18,12 +18,11 @@ class UserType extends AbstractType
             ->add('username')
             ->add('firstName')
             ->add('lastName')
-            ->add('email')
-            ->add('password')
-            ->add('role')
-            ->add('isActive')
-            ->add('createdAt', 'datetime')
-            ->add('updatedAt', 'datetime')
+            ->add('email', 'email')
+            ->add('password', 'password')
+            ->add('role', 'choice', array('choices' => array('ROLE_ADMIN' => 'Administrador', 'ROLE_USER' => 'Usuario'), 'placeholder' => 'Seleccione el rol'))
+            ->add('isActive', 'checkbox')
+            ->add('save', 'submit')
         ;
     }
     
@@ -35,5 +34,13 @@ class UserType extends AbstractType
         $resolver->setDefaults(array(
             'data_class' => 'AppBundle\Entity\User'
         ));
+    }
+
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+        return 'user';
     }
 }

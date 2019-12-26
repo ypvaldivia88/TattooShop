@@ -63,21 +63,6 @@ class Trabajo
     private $pago;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="PagoId", type="integer")
-     */
-    private $pagoId;
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="ArtistaId", type="integer")
-     */
-    private $artistaId;
-
-
-    /**
      * Get id
      *
      * @return integer 
@@ -154,75 +139,6 @@ class Trabajo
     public function getDescripcion()
     {
         return $this->descripcion;
-    }
-
-    /**
-     * Set citaId
-     *
-     * @param integer $citaId
-     * @return Trabajo
-     */
-    public function setCitaId($citaId)
-    {
-        $this->citaId = $citaId;
-
-        return $this;
-    }
-
-    /**
-     * Get citaId
-     *
-     * @return integer 
-     */
-    public function getCitaId()
-    {
-        return $this->citaId;
-    }
-
-    /**
-     * Set pagoId
-     *
-     * @param integer $pagoId
-     * @return Trabajo
-     */
-    public function setPagoId($pagoId)
-    {
-        $this->pagoId = $pagoId;
-
-        return $this;
-    }
-
-    /**
-     * Get pagoId
-     *
-     * @return integer 
-     */
-    public function getPagoId()
-    {
-        return $this->pagoId;
-    }
-
-    /**
-     * Set artistaId
-     *
-     * @param integer $artistaId
-     * @return Trabajo
-     */
-    public function setArtistaId($artistaId)
-    {
-        $this->artistaId = $artistaId;
-
-        return $this;
-    }
-
-    /**
-     * Get artistaId
-     *
-     * @return integer 
-     */
-    public function getArtistaId()
-    {
-        return $this->artistaId;
     }
 
     /**

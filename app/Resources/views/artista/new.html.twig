@@ -1,16 +1,43 @@
 {% extends 'base.html.twig' %}
+{% block title %}Nuevo Artista{% endblock %}
+{% block breadcrumb %}
+<h3 class="text-themecolor m-b-0 m-t-0">Artista</h3>
+<ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="{{ path('homepage') }}">Inicio</a></li>
+    <li class="breadcrumb-item"><a href="{{ path('artista_index') }}">Artista</a></li>
+    <li class="breadcrumb-item active">Crear</li>
+</ol>
+{% endblock %}
 
 {% block body %}
-    <h1>Artista creation</h1>
 
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Create" />
+<div class="card">
+
+    <div class="card-header">
+        <h2>Crear nuevo artista</h2>
+    </div>
+    
+    <div class="card-body">
+
+        {{ form_start(form, { 'attr' : {'role' : 'form', 'class' : 'form-material m-t-40'} }) }}
+                
+        <div class="col-md-6">
+            <div class="form-group">
+                {{ form_widget(form.nombre, { 'attr' :{'class' : 'form-control', 'placeholder' : 'Nombre'} }) }}
+                <span class="text-danger">{{ form_errors(form.nombre) }}</span>
+            </div>
+        </div>   
+        
+    </div>
+
+    <div class="card-footer">
+        <div class="button-group">
+            {{ form_widget(form.save, {'label' : 'Crear artista', 'attr' : {'class' : 'btn waves-effect waves-light btn-success'}}) }}
+            <a href="{{ path('artista_index') }}" class="btn waves-effect waves-light btn-secondary">Ir al Listado</a>
+        </div>
+    </div>
+
     {{ form_end(form) }}
-
-    <ul>
-        <li>
-            <a href="{{ path('artista_index') }}">Back to the list</a>
-        </li>
-    </ul>
+</div>    
 {% endblock %}
+

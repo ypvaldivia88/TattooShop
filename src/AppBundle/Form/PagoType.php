@@ -19,6 +19,7 @@ class PagoType extends AbstractType
             ->add('fechaFinal')
             ->add('efectivo')
             ->add('artista')
+            ->add('save', 'submit')
         ;
     }
     

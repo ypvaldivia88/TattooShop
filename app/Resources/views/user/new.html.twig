@@ -1,16 +1,73 @@
 {% extends 'base.html.twig' %}
+{% block title %}Nuevo usuario{% endblock %}
+{% block breadcrumb %}
+<h3 class="text-themecolor m-b-0 m-t-0">Usuarios</h3>
+<ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="{{ path('homepage') }}">Inicio</a></li>
+    <li class="breadcrumb-item"><a href="{{ path('user_index') }}">Usuarios</a></li>
+    <li class="breadcrumb-item active">Crear</li>
+</ol>
+{% endblock %}
 
 {% block body %}
-    <h1>User creation</h1>
 
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Create" />
+<div class="card">
+
+    <div class="card-header">
+        <h2>Crear nuevo usuario</h2>
+    </div>
+    
+    <div class="card-body">
+
+        {{ form_start(form, { 'attr' : {'role' : 'form', 'class' : 'form-material m-t-40'} }) }}
+                
+        <div class="col-md-12">
+            <div class="form-group">
+                {{ form_widget(form.username, { 'attr' :{'class' : 'form-control', 'placeholder' : 'Usuario'} }) }}
+                <span class="text-danger">{{ form_errors(form.username) }}</span>
+            </div>
+
+            <div class="form-group">
+                {{ form_widget(form.firstName, { 'attr' :{'class' : 'form-control', 'placeholder' : 'Nombre(s)'} }) }}
+                <span class="text-danger">{{ form_errors(form.firstName) }}</span>
+            </div>
+
+            <div class="form-group">
+                {{ form_widget(form.lastName, { 'attr' :{'class' : 'form-control', 'placeholder' : 'Apellido(s)'} }) }}
+                <span class="text-danger">{{ form_errors(form.lastName) }}</span>
+            </div>
+
+            <div class="form-group">
+                {{ form_widget(form.email, { 'attr' :{'class' : 'form-control', 'placeholder' : 'Correo electrónico'} }) }}
+                <span class="text-danger">{{ form_errors(form.email) }}</span>
+            </div>
+
+            <div class="form-group">
+                {{ form_widget(form.password, { 'attr' :{'class' : 'form-control', 'placeholder' : 'Contraseña'} }) }}
+                <span class="text-danger">{{ form_errors(form.password) }}</span>
+            </div>
+
+            <div class="form-group">
+                {{ form_widget(form.role, { 'attr' : {'class' : 'form-control', 'placeholder' : 'Elija el rol'} }) }}
+                <span class="text-danger">{{ form_errors(form.role) }}</span>
+            </div>
+
+            <div class="demo-checkbox">
+                {{ form_widget(form.isActive, { 'attr' : {'class' : 'form-control'} }) }}
+                {{ form_label(form.isActive) }}
+                <span class="text-danger">{{ form_errors(form.isActive) }}</span>
+            </div>
+        </div>   
+        
+    </div>
+
+    <div class="card-footer">
+        <div class="button-group">
+            {{ form_widget(form.save, {'label' : 'Crear usuario', 'attr' : {'class' : 'btn waves-effect waves-light btn-success'}}) }}
+            <a href="{{ path('user_index') }}" class="btn waves-effect waves-light btn-secondary">Ir al Listado</a>
+        </div>
+    </div>
+
     {{ form_end(form) }}
-
-    <ul>
-        <li>
-            <a href="{{ path('user_index') }}">Back to the list</a>
-        </li>
-    </ul>
+</div>    
 {% endblock %}

@@ -1,47 +1,83 @@
 {% extends 'base.html.twig' %}
+{% block title %}Trabajos
+{% endblock %}
+{% block breadcrumb %}
+	<h3 class="text-themecolor m-b-0 m-t-0">Trabajos</h3>
+	<ol class="breadcrumb">
+		<li class="breadcrumb-item">
+			<a href="{{ path('homepage') }}">Inicio</a>
+		</li>
+		<li class="breadcrumb-item active">Trabajos</li>
+	</ol>
+{% endblock %}
 
 {% block body %}
-    <h1>Trabajo list</h1>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Fecha</th>
-                <th>Precio</th>
-                <th>Descripcion</th>
-                <th>Pagoid</th>
-                <th>Artistaid</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for trabajo in trabajos %}
-            <tr>
-                <td><a href="{{ path('trabajo_show', { 'id': trabajo.id }) }}">{{ trabajo.id }}</a></td>
-                <td>{{ trabajo.fecha }}</td>
-                <td>{{ trabajo.precio }}</td>
-                <td>{{ trabajo.descripcion }}</td>
-                <td>{{ trabajo.pagoId }}</td>
-                <td>{{ trabajo.artistaId }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('trabajo_show', { 'id': trabajo.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('trabajo_edit', { 'id': trabajo.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+	<div class="card">
+		<div class="card-header">
+			<h2>Listado de Trabajos</h2>
+		</div>
+		<div class="card-body">
+			<div class="table-responsive">
+				<table id="datatable" class="table table-bordered table-striped">
+					<thead>
+						<tr>
+							<th>Id</th>
+							<th>Fecha</th>
+							<th>Precio</th>
+							<th>Descripcion</th>
+							<th>Pagoid</th>
+							<th>Artistaid</th>
+							<th>Acciones</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for item in trabajos %}
+							<tr>
+								<td>
+									<a href="{{ path('trabajo_show', { 'id': item.id }) }}">{{ item.id }}</a>
+								</td>
+								<td>{{ item.fecha|date('d-m-Y') }}</td>
+								<td>{{ item.precio }}</td>
+								<td>{{ item.descripcion }}</td>
+								<td>{{ item.pago.id }}</td>
+								<td>{{ item.artista.id }}</td>
+								<td>
+									<div class="button-group">
+										<a title="Detalles" href="{{ path('trabajo_show', { 'id': item.id }) }}" class="btn btn-xs btn-info">
+											<i class="fa fa-eye"></i>
+										</a>
+										<a title="Editar" href="{{ path('trabajo_edit', { 'id': item.id }) }}" class="btn btn-xs btn-warning">
+											<i class="fa fa-edit"></i>
+										</a>
+										<a title="Eliminar" href="{{ path('trabajo_delete', { 'id': item.id }) }}" class="btn btn-xs btn-danger">
+											<i class="fa fa-eraser"></i>
+										</a>
+									</div>
+								</td>
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="card-footer">
+			<a href="{{ path('trabajo_new') }}" class="btn waves-effect waves-light btn-primary">
+				<i class="fa fa-plus"></i>
+				Crear nuevo trabajo</a>
+		</div>
+	</div>
+{% endblock %}
 
-    <ul>
-        <li>
-            <a href="{{ path('trabajo_new') }}">Create a new entry</a>
-        </li>
-    </ul>
+{% block javascripts %}
+	{{ parent() }}
+	<!-- This is data table -->
+	<script src="{{ asset('public/plugins/datatables/jquery.dataTables.min.js') }}"></script>
+
+	<script>
+		$(document).ready(function () {
+            $('#datatable').DataTable();
+        });
+	</script>
+
 {% endblock %}

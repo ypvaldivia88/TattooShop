@@ -18,11 +18,10 @@ class TrabajoType extends AbstractType
             ->add('fecha')
             ->add('precio')
             ->add('descripcion')
-            ->add('pagoId')
-            ->add('artistaId')
             ->add('cita')
             ->add('artista')
             ->add('pago')
+            ->add('save', 'submit')
         ;
     }
     

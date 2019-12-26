@@ -61,7 +61,7 @@ class Cita
 
     public function __construct()
     {
-        $this->$trabajos = new ArrayCollection();
+        $this->trabajos = new ArrayCollection();
     }
 
     /**

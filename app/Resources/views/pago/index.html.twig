@@ -1,43 +1,79 @@
 {% extends 'base.html.twig' %}
+{% block title %}Pagos
+{% endblock %}
+{% block breadcrumb %}
+	<h3 class="text-themecolor m-b-0 m-t-0">Pagos</h3>
+	<ol class="breadcrumb">
+		<li class="breadcrumb-item">
+			<a href="{{ path('homepage') }}">Inicio</a>
+		</li>
+		<li class="breadcrumb-item active">Pagos</li>
+	</ol>
+{% endblock %}
 
 {% block body %}
-    <h1>Pago list</h1>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Fechainicial</th>
-                <th>Fechafinal</th>
-                <th>Efectivo</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for pago in pagos %}
-            <tr>
-                <td><a href="{{ path('pago_show', { 'id': pago.id }) }}">{{ pago.id }}</a></td>
-                <td>{{ pago.fechaInicial }}</td>
-                <td>{{ pago.fechaFinal }}</td>
-                <td>{{ pago.efectivo }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('pago_show', { 'id': pago.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('pago_edit', { 'id': pago.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+	<div class="card">
+		<div class="card-header">
+			<h2>Listado de Pagos</h2>
+		</div>
+		<div class="card-body">
+			<div class="table-responsive">
+				<table id="datatable" class="table table-bordered table-striped">
+					<thead>
+						<tr>
+							<th>Id</th>
+							<th>Fechainicial</th>
+							<th>Fechafinal</th>
+							<th>Efectivo</th>
+							<th>Acciones</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for item in pagos %}
+							<tr>
+								<td>
+									<a href="{{ path('pago_show', { 'id': item.id }) }}">{{ item.id }}</a>
+								</td>
+								<td>{{ item.fechaInicial|date('d-m-Y') }}</td>
+								<td>{{ item.fechaFinal|date('d-m-Y') }}</td>
+								<td>{{ item.efectivo }}</td>
+								<td>
+									<div class="button-group">
+										<a title="Detalles" href="{{ path('pago_show', { 'id': item.id }) }}" class="btn btn-xs btn-info">
+											<i class="fa fa-eye"></i>
+										</a>
+										<a title="Editar" href="{{ path('pago_edit', { 'id': item.id }) }}" class="btn btn-xs btn-warning">
+											<i class="fa fa-edit"></i>
+										</a>
+										<a title="Eliminar" href="{{ path('pago_delete', { 'id': item.id }) }}" class="btn btn-xs btn-danger">
+											<i class="fa fa-eraser"></i>
+										</a>
+									</div>
+								</td>
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="card-footer">
+			<a href="{{ path('pago_new') }}" class="btn waves-effect waves-light btn-primary">
+				<i class="fa fa-plus"></i>
+				Crear nuevo pago</a>
+		</div>
+	</div>
+{% endblock %}
 
-    <ul>
-        <li>
-            <a href="{{ path('pago_new') }}">Create a new entry</a>
-        </li>
-    </ul>
+{% block javascripts %}
+	{{ parent() }}
+	<!-- This is data table -->
+	<script src="{{ asset('public/plugins/datatables/jquery.dataTables.min.js') }}"></script>
+
+	<script>
+		$(document).ready(function () {
+            $('#datatable').DataTable();
+        });
+	</script>
+
 {% endblock %}
