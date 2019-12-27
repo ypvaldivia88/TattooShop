@@ -24,7 +24,7 @@ class Trabajo
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="Fecha", type="datetimetz")
+     * @ORM\Column(name="Fecha", type="date")
      */
     private $fecha;
 

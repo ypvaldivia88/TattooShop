@@ -16,13 +16,13 @@
     <div class="card-header">
         <h2>Editar Cita</h2>
     </div>
-    
+
     <div class="card-body">
 
         {{ form_start(edit_form, { 'attr' : {'role' : 'form', 'class' : 'form-material m-t-40'} }) }}
-                
+
         <div class="form-group">
-            {{ form_widget(edit_form.fecha, { 'attr' :{'class' : 'form-control'} }) }}
+            {{ form_widget(edit_form.fecha|date('Y-m-d'), { 'attr' :{'class' : 'mdate'} }) }}
             <span class="text-danger">{{ form_errors(edit_form.fecha) }}</span>
         </div>
 
@@ -32,7 +32,7 @@
         </div>
 
         <div class="form-group">
-            {{ form_widget(edit_form.cliente, { 'attr' : {'class' : 'form-control select2-single', 'placeholder' : 'Elija el cliente'} }) }}
+            {{ form_widget(edit_form.cliente, { 'attr' : {'class' : 'form-control', 'placeholder' : 'Elija el cliente'} }) }}
             <span class="text-danger">{{ form_errors(edit_form.cliente) }}</span>
         </div>
 
@@ -51,12 +51,32 @@
     <div class="card-footer">
 
         <div class="button-group">
-            {{ form_widget(edit_form.save, {'label' : 'Guardar cita', 'attr' : {'class' : 'btn waves-effect waves-light btn-success'}}) }}
+            {{ form_widget(edit_form.save, {'label' : 'Guardar cita', 'attr' : {'class' : 'btn waves-effect waves-light btn-success'}})
+            }}
             <a href="{{ path('cita_index') }}" class="btn waves-effect waves-light btn-secondary">Ir al Listado</a>
         </div>
-        
+
     </div>
 
     {{ form_end(edit_form) }}
-</div>    
+</div>
+{% endblock %}
+
+{% block javascripts %}
+<script src="{{ asset('public/plugins/moment/moment.js') }}"></script>
+<script src="{{ asset('public/plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js') }}">
+</script>
+{% endblock %}
+
+{% block stylesheets %}
+<!-- Date picker plugins css -->
+<link href="{{ asset('public/plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css') }}"
+    rel="stylesheet">
+<script>
+    // MAterial Date picker    
+    $('.mdate').bootstrapMaterialDatePicker({
+        weekStart: 0,
+        time: false
+    });
+</script>
 {% endblock %}

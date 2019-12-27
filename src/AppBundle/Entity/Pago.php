@@ -25,14 +25,14 @@ class Pago
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="FechaInicial", type="datetimetz")
+     * @ORM\Column(name="FechaInicial", type="date")
      */
     private $fechaInicial;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="FechaFinal", type="datetimetz")
+     * @ORM\Column(name="FechaFinal", type="date")
      */
     private $fechaFinal;
 

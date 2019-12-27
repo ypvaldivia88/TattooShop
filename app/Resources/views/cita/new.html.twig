@@ -1,62 +1,83 @@
 {% extends 'base.html.twig' %}
-{% block title %}Crear Cita{% endblock %}
+{% block title %}Crear Cita
+{% endblock %}
 {% block breadcrumb %}
-<h3 class="text-themecolor m-b-0 m-t-0">Crear Cita</h3>
-<ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="{{ path('homepage') }}">Inicio</a></li>
-    <li class="breadcrumb-item"><a href="{{ path('cita_index') }}">Citas</a></li>
-    <li class="breadcrumb-item active">Crear</li>
-</ol>
+	<h3 class="text-themecolor m-b-0 m-t-0">Crear Cita</h3>
+	<ol class="breadcrumb">
+		<li class="breadcrumb-item">
+			<a href="{{ path('homepage') }}">Inicio</a>
+		</li>
+		<li class="breadcrumb-item">
+			<a href="{{ path('cita_index') }}">Citas</a>
+		</li>
+		<li class="breadcrumb-item active">Crear</li>
+	</ol>
 {% endblock %}
 
 {% block body %}
 
-<div class="card">
+	<div class="card">
 
-    <div class="card-header">
-        <h2>Crear Cita</h2>
-    </div>
-    
-    <div class="card-body">
+		<div class="card-header">
+			<h2>Crear Cita</h2>
+		</div>
 
-        {{ form_start(form, { 'attr' : {'role' : 'form', 'class' : 'form-material m-t-40'} }) }}
-                
-        <div class="form-group">
-            {{ form_widget(form.fecha, { 'attr' :{'class' : 'form-control'} }) }}
-            <span class="text-danger">{{ form_errors(form.fecha) }}</span>
-        </div>
+		<div class="card-body">
 
-        <div class="form-group">
-            {{ form_widget(form.deposito, { 'attr' :{'class' : 'form-control', 'placeholder' : 'Depósito'} }) }}
-            <span class="text-danger">{{ form_errors(form.deposito) }}</span>
-        </div>
+			{{ form_start(form, { 'attr' : {'role' : 'form', 'class' : 'form-material m-t-40'} }) }}
 
-        <div class="form-group">
-            {{ form_widget(form.cliente, { 'attr' : {'class' : 'form-control select2-single', 'placeholder' : 'Elija el cliente'} }) }}
-            <span class="text-danger">{{ form_errors(form.cliente) }}</span>
-        </div>
+			<div class="form-group">
+				{{ form_widget(form.fecha, { 'attr' :{'class' : 'form-control mdate'} }) }}
+				<span class="text-danger">{{ form_errors(form.fecha) }}</span>
+			</div>
 
-        <div class="form-group">
-            {{ form_widget(form.tipo_trabajo, { 'attr' : {'class' : 'form-control', 'placeholder' : 'Elija el tipo de trabajo'} }) }}
-            <span class="text-danger">{{ form_errors(form.tipo_trabajo) }}</span>
-        </div>
+			<div class="form-group">
+				{{ form_widget(form.deposito, { 'attr' :{'class' : 'form-control', 'placeholder' : 'Depósito'} }) }}
+				<span class="text-danger">{{ form_errors(form.deposito) }}</span>
+			</div>
 
-        <div class="form-group">
-            {{ form_widget(form.artista, { 'attr' : {'class' : 'form-control', 'placeholder' : 'Elija el artista'} }) }}
-            <span class="text-danger">{{ form_errors(form.artista) }}</span>
-        </div>
+			<div class="form-group">
+				{{ form_widget(form.cliente, { 'attr' : {'class' : 'form-control select2-single', 'placeholder' : 'Elija el cliente'} }) }}
+				<span class="text-danger">{{ form_errors(form.cliente) }}</span>
+			</div>
 
-    </div>
+			<div class="form-group">
+				{{ form_widget(form.tipo_trabajo, { 'attr' : {'class' : 'form-control', 'placeholder' : 'Elija el tipo de trabajo'} }) }}
+				<span class="text-danger">{{ form_errors(form.tipo_trabajo) }}</span>
+			</div>
 
-    <div class="card-footer">
+			<div class="form-group">
+				{{ form_widget(form.artista, { 'attr' : {'class' : 'form-control', 'placeholder' : 'Elija el artista'} }) }}
+				<span class="text-danger">{{ form_errors(form.artista) }}</span>
+			</div>
 
-        <div class="button-group">
-            {{ form_widget(form.save, {'label' : 'Guardar cita', 'attr' : {'class' : 'btn waves-effect waves-light btn-success'}}) }}
-            <a href="{{ path('cita_index') }}" class="btn waves-effect waves-light btn-secondary">Ir al Listado</a>
-        </div>
-        
-    </div>
+		</div>
 
-    {{ form_end(form) }}
-</div>    
+		<div class="card-footer">
+
+			<div class="button-group">
+				{{ form_widget(form.save, {'label' : 'Guardar cita', 'attr' : {'class' : 'btn waves-effect waves-light btn-success'}}) }}
+				<a href="{{ path('cita_index') }}" class="btn waves-effect waves-light btn-secondary">Ir al Listado</a>
+			</div>
+
+		</div>
+
+		{{ form_end(form) }}
+	</div>
+{% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}
+	<script src="{{ asset('public/plugins/moment/moment.js') }}"></script>
+	<script src="{{ asset('public/plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js') }}"></script>
+	<script>
+		// MAterial Date picker
+$('.mdate').bootstrapMaterialDatePicker({weekStart: 0, time: false});
+	</script>
+{% endblock %}
+
+{% block stylesheets %}
+	{{ parent() }}
+	<!-- Date picker plugins css -->
+	<link href="{{ asset('public/plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css') }}" rel="stylesheet">
 {% endblock %}

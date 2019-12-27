@@ -15,7 +15,7 @@ class CitaType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('fecha', 'date')
+            ->add('fecha', 'text')
             ->add('deposito')
             ->add('cliente','entity', array(
                 'class' => 'AppBundle:Cliente',
