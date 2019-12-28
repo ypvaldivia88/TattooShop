@@ -44,17 +44,21 @@ class Artista
      */
     protected $pagos;
 
-    public function construct()
+    
+    /**
+     * Constructor
+     */
+    public function __construct()
     {
-        $this->$citas = new ArrayCollection();
-        $this->$trabajos = new ArrayCollection();
-        $this->$pagos = new ArrayCollection();
+        $this->citas = new ArrayCollection();
+        $this->trabajos = new ArrayCollection();
+        $this->pagos = new ArrayCollection();
     }
 
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -65,6 +69,7 @@ class Artista
      * Set nombre
      *
      * @param string $nombre
+     *
      * @return Artista
      */
     public function setNombre($nombre)
@@ -77,47 +82,41 @@ class Artista
     /**
      * Get nombre
      *
-     * @return string 
+     * @return string
      */
     public function getNombre()
     {
         return $this->nombre;
     }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->citas = new \Doctrine\Common\Collections\ArrayCollection();
-    }
 
     /**
-     * Add citas
+     * Add cita
      *
-     * @param \AppBundle\Entity\Cita $citas
+     * @param \AppBundle\Entity\Cita $cita
+     *
      * @return Artista
      */
-    public function addCita(\AppBundle\Entity\Cita $citas)
+    public function addCita(\AppBundle\Entity\Cita $cita)
     {
-        $this->citas[] = $citas;
+        $this->citas[] = $cita;
 
         return $this;
     }
 
     /**
-     * Remove citas
+     * Remove cita
      *
-     * @param \AppBundle\Entity\Cita $citas
+     * @param \AppBundle\Entity\Cita $cita
      */
-    public function removeCita(\AppBundle\Entity\Cita $citas)
+    public function removeCita(\AppBundle\Entity\Cita $cita)
     {
-        $this->citas->removeElement($citas);
+        $this->citas->removeElement($cita);
     }
 
     /**
      * Get citas
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return Collection
      */
     public function getCitas()
     {
@@ -125,32 +124,33 @@ class Artista
     }
 
     /**
-     * Add trabajos
+     * Add trabajo
      *
-     * @param \AppBundle\Entity\Trabajo $trabajos
+     * @param \AppBundle\Entity\Trabajo $trabajo
+     *
      * @return Artista
      */
-    public function addTrabajo(\AppBundle\Entity\Trabajo $trabajos)
+    public function addTrabajo(\AppBundle\Entity\Trabajo $trabajo)
     {
-        $this->trabajos[] = $trabajos;
+        $this->trabajos[] = $trabajo;
 
         return $this;
     }
 
     /**
-     * Remove trabajos
+     * Remove trabajo
      *
-     * @param \AppBundle\Entity\Trabajo $trabajos
+     * @param \AppBundle\Entity\Trabajo $trabajo
      */
-    public function removeTrabajo(\AppBundle\Entity\Trabajo $trabajos)
+    public function removeTrabajo(\AppBundle\Entity\Trabajo $trabajo)
     {
-        $this->trabajos->removeElement($trabajos);
+        $this->trabajos->removeElement($trabajo);
     }
 
     /**
      * Get trabajos
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return Collection
      */
     public function getTrabajos()
     {
@@ -158,32 +158,33 @@ class Artista
     }
 
     /**
-     * Add pagos
+     * Add pago
      *
-     * @param \AppBundle\Entity\Pago $pagos
+     * @param \AppBundle\Entity\Pago $pago
+     *
      * @return Artista
      */
-    public function addPago(\AppBundle\Entity\Pago $pagos)
+    public function addPago(\AppBundle\Entity\Pago $pago)
     {
-        $this->pagos[] = $pagos;
+        $this->pagos[] = $pago;
 
         return $this;
     }
 
     /**
-     * Remove pagos
+     * Remove pago
      *
-     * @param \AppBundle\Entity\Pago $pagos
+     * @param \AppBundle\Entity\Pago $pago
      */
-    public function removePago(\AppBundle\Entity\Pago $pagos)
+    public function removePago(\AppBundle\Entity\Pago $pago)
     {
-        $this->pagos->removeElement($pagos);
+        $this->pagos->removeElement($pago);
     }
 
     /**
      * Get pagos
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return Collection
      */
     public function getPagos()
     {

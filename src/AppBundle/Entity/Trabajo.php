@@ -62,10 +62,12 @@ class Trabajo
      */
     private $pago;
 
+    
+
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -76,6 +78,7 @@ class Trabajo
      * Set fecha
      *
      * @param \DateTime $fecha
+     *
      * @return Trabajo
      */
     public function setFecha($fecha)
@@ -88,7 +91,7 @@ class Trabajo
     /**
      * Get fecha
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getFecha()
     {
@@ -99,6 +102,7 @@ class Trabajo
      * Set precio
      *
      * @param float $precio
+     *
      * @return Trabajo
      */
     public function setPrecio($precio)
@@ -111,7 +115,7 @@ class Trabajo
     /**
      * Get precio
      *
-     * @return float 
+     * @return float
      */
     public function getPrecio()
     {
@@ -122,6 +126,7 @@ class Trabajo
      * Set descripcion
      *
      * @param string $descripcion
+     *
      * @return Trabajo
      */
     public function setDescripcion($descripcion)
@@ -134,7 +139,7 @@ class Trabajo
     /**
      * Get descripcion
      *
-     * @return string 
+     * @return string
      */
     public function getDescripcion()
     {
@@ -145,6 +150,7 @@ class Trabajo
      * Set cita
      *
      * @param \AppBundle\Entity\Cita $cita
+     *
      * @return Trabajo
      */
     public function setCita(\AppBundle\Entity\Cita $cita = null)
@@ -157,7 +163,7 @@ class Trabajo
     /**
      * Get cita
      *
-     * @return \AppBundle\Entity\Cita 
+     * @return \AppBundle\Entity\Cita
      */
     public function getCita()
     {
@@ -168,6 +174,7 @@ class Trabajo
      * Set artista
      *
      * @param \AppBundle\Entity\Artista $artista
+     *
      * @return Trabajo
      */
     public function setArtista(\AppBundle\Entity\Artista $artista = null)
@@ -180,7 +187,7 @@ class Trabajo
     /**
      * Get artista
      *
-     * @return \AppBundle\Entity\Artista 
+     * @return \AppBundle\Entity\Artista
      */
     public function getArtista()
     {
@@ -191,6 +198,7 @@ class Trabajo
      * Set pago
      *
      * @param \AppBundle\Entity\Pago $pago
+     *
      * @return Trabajo
      */
     public function setPago(\AppBundle\Entity\Pago $pago = null)
@@ -203,7 +211,7 @@ class Trabajo
     /**
      * Get pago
      *
-     * @return \AppBundle\Entity\Pago 
+     * @return \AppBundle\Entity\Pago
      */
     public function getPago()
     {

@@ -9,19 +9,15 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 class TipoTrabajoType extends AbstractType
 {
     /**
-     * @param FormBuilderInterface $builder
-     * @param array $options
+     * {@inheritdoc}
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder
-            ->add('nombre')
-            ->add('save', 'submit')
-        ;
+        $builder->add('nombre');
     }
     
     /**
-     * @param OptionsResolver $resolver
+     * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)
     {
@@ -29,4 +25,14 @@ class TipoTrabajoType extends AbstractType
             'data_class' => 'AppBundle\Entity\TipoTrabajo'
         ));
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getBlockPrefix()
+    {
+        return 'appbundle_tipotrabajo';
+    }
+
+
 }

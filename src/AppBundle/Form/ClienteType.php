@@ -9,20 +9,15 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 class ClienteType extends AbstractType
 {
     /**
-     * @param FormBuilderInterface $builder
-     * @param array $options
+     * {@inheritdoc}
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder
-            ->add('nombre')
-            ->add('telefono')
-            ->add('save', 'submit')
-        ;
+        $builder->add('nombre')->add('telefono');
     }
     
     /**
-     * @param OptionsResolver $resolver
+     * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)
     {
@@ -30,4 +25,14 @@ class ClienteType extends AbstractType
             'data_class' => 'AppBundle\Entity\Cliente'
         ));
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getBlockPrefix()
+    {
+        return 'appbundle_cliente';
+    }
+
+
 }

@@ -56,7 +56,8 @@
 		<div class="card-footer">
 
 			<div class="button-group">
-				{{ form_widget(form.save, {'label' : 'Guardar cita', 'attr' : {'class' : 'btn waves-effect waves-light btn-success'}}) }}
+				{# {{ form_widget(form.save, {'label' : 'Guardar cita', 'attr' : {'class' : 'btn waves-effect waves-light btn-success'}}) }} #}
+				<button type="submit" class="btn waves-effect waves-light btn-success">Guardar Cita</button> 
 				<a href="{{ path('cita_index') }}" class="btn waves-effect waves-light btn-secondary">Ir al Listado</a>
 			</div>
 

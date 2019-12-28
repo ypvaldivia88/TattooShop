@@ -9,25 +9,15 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 class UserType extends AbstractType
 {
     /**
-     * @param FormBuilderInterface $builder
-     * @param array $options
+     * {@inheritdoc}
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder
-            ->add('username')
-            ->add('firstName')
-            ->add('lastName')
-            ->add('email', 'email')
-            ->add('password', 'password')
-            ->add('role', 'choice', array('choices' => array('ROLE_ADMIN' => 'Administrador', 'ROLE_USER' => 'Usuario'), 'placeholder' => 'Seleccione el rol'))
-            ->add('isActive', 'checkbox')
-            ->add('save', 'submit')
-        ;
+        $builder->add('username')->add('firstName')->add('lastName')->add('email')->add('password')->add('role')->add('isActive')->add('createdAt')->add('updatedAt');
     }
     
     /**
-     * @param OptionsResolver $resolver
+     * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)
     {
@@ -37,10 +27,12 @@ class UserType extends AbstractType
     }
 
     /**
-     * @return string
+     * {@inheritdoc}
      */
-    public function getName()
+    public function getBlockPrefix()
     {
-        return 'user';
+        return 'appbundle_user';
     }
+
+
 }

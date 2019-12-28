@@ -54,15 +54,19 @@ class Pago
      */
     protected $trabajos;
 
+    
+    /**
+     * Constructor
+     */
     public function __construct()
     {
-        $this->$trabajos = new ArrayCollection();
+        $this->trabajos = new ArrayCollection();
     }
 
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -73,6 +77,7 @@ class Pago
      * Set fechaInicial
      *
      * @param \DateTime $fechaInicial
+     *
      * @return Pago
      */
     public function setFechaInicial($fechaInicial)
@@ -85,7 +90,7 @@ class Pago
     /**
      * Get fechaInicial
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getFechaInicial()
     {
@@ -96,6 +101,7 @@ class Pago
      * Set fechaFinal
      *
      * @param \DateTime $fechaFinal
+     *
      * @return Pago
      */
     public function setFechaFinal($fechaFinal)
@@ -108,7 +114,7 @@ class Pago
     /**
      * Get fechaFinal
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getFechaFinal()
     {
@@ -119,6 +125,7 @@ class Pago
      * Set efectivo
      *
      * @param float $efectivo
+     *
      * @return Pago
      */
     public function setEfectivo($efectivo)
@@ -131,7 +138,7 @@ class Pago
     /**
      * Get efectivo
      *
-     * @return float 
+     * @return float
      */
     public function getEfectivo()
     {
@@ -142,6 +149,7 @@ class Pago
      * Set artista
      *
      * @param \AppBundle\Entity\Artista $artista
+     *
      * @return Pago
      */
     public function setArtista(\AppBundle\Entity\Artista $artista = null)
@@ -154,7 +162,7 @@ class Pago
     /**
      * Get artista
      *
-     * @return \AppBundle\Entity\Artista 
+     * @return \AppBundle\Entity\Artista
      */
     public function getArtista()
     {
@@ -162,32 +170,33 @@ class Pago
     }
 
     /**
-     * Add trabajos
+     * Add trabajo
      *
-     * @param \AppBundle\Entity\Trabajo $trabajos
+     * @param \AppBundle\Entity\Trabajo $trabajo
+     *
      * @return Pago
      */
-    public function addTrabajo(\AppBundle\Entity\Trabajo $trabajos)
+    public function addTrabajo(\AppBundle\Entity\Trabajo $trabajo)
     {
-        $this->trabajos[] = $trabajos;
+        $this->trabajos[] = $trabajo;
 
         return $this;
     }
 
     /**
-     * Remove trabajos
+     * Remove trabajo
      *
-     * @param \AppBundle\Entity\Trabajo $trabajos
+     * @param \AppBundle\Entity\Trabajo $trabajo
      */
-    public function removeTrabajo(\AppBundle\Entity\Trabajo $trabajos)
+    public function removeTrabajo(\AppBundle\Entity\Trabajo $trabajo)
     {
-        $this->trabajos->removeElement($trabajos);
+        $this->trabajos->removeElement($trabajo);
     }
 
     /**
      * Get trabajos
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return Collection
      */
     public function getTrabajos()
     {

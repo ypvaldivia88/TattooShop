@@ -41,15 +41,19 @@ class Cliente
      */
     protected $citas;
 
+    
+    /**
+     * Constructor
+     */
     public function __construct()
     {
-        $this->$citas = new ArrayCollection();
+        $this->citas = new ArrayCollection();
     }
 
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -60,6 +64,7 @@ class Cliente
      * Set nombre
      *
      * @param string $nombre
+     *
      * @return Cliente
      */
     public function setNombre($nombre)
@@ -72,7 +77,7 @@ class Cliente
     /**
      * Get nombre
      *
-     * @return string 
+     * @return string
      */
     public function getNombre()
     {
@@ -83,6 +88,7 @@ class Cliente
      * Set telefono
      *
      * @param string $telefono
+     *
      * @return Cliente
      */
     public function setTelefono($telefono)
@@ -95,7 +101,7 @@ class Cliente
     /**
      * Get telefono
      *
-     * @return string 
+     * @return string
      */
     public function getTelefono()
     {
@@ -103,32 +109,33 @@ class Cliente
     }
 
     /**
-     * Add citas
+     * Add cita
      *
-     * @param \AppBundle\Entity\Cita $citas
+     * @param \AppBundle\Entity\Cita $cita
+     *
      * @return Cliente
      */
-    public function addCita(\AppBundle\Entity\Cita $citas)
+    public function addCita(\AppBundle\Entity\Cita $cita)
     {
-        $this->citas[] = $citas;
+        $this->citas[] = $cita;
 
         return $this;
     }
 
     /**
-     * Remove citas
+     * Remove cita
      *
-     * @param \AppBundle\Entity\Cita $citas
+     * @param \AppBundle\Entity\Cita $cita
      */
-    public function removeCita(\AppBundle\Entity\Cita $citas)
+    public function removeCita(\AppBundle\Entity\Cita $cita)
     {
-        $this->citas->removeElement($citas);
+        $this->citas->removeElement($cita);
     }
 
     /**
      * Get citas
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return Collection
      */
     public function getCitas()
     {

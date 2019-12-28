@@ -9,22 +9,15 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 class PagoType extends AbstractType
 {
     /**
-     * @param FormBuilderInterface $builder
-     * @param array $options
+     * {@inheritdoc}
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder
-            ->add('fechaInicial')
-            ->add('fechaFinal')
-            ->add('efectivo')
-            ->add('artista')
-            ->add('save', 'submit')
-        ;
+        $builder->add('fechaInicial')->add('fechaFinal')->add('efectivo')->add('artista');
     }
     
     /**
-     * @param OptionsResolver $resolver
+     * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)
     {
@@ -32,4 +25,14 @@ class PagoType extends AbstractType
             'data_class' => 'AppBundle\Entity\Pago'
         ));
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getBlockPrefix()
+    {
+        return 'appbundle_pago';
+    }
+
+
 }

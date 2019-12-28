@@ -59,6 +59,10 @@ class Cita
      */
     protected $trabajos;
 
+    
+    /**
+     * Constructor
+     */
     public function __construct()
     {
         $this->trabajos = new ArrayCollection();
@@ -67,7 +71,7 @@ class Cita
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -78,6 +82,7 @@ class Cita
      * Set fecha
      *
      * @param \DateTime $fecha
+     *
      * @return Cita
      */
     public function setFecha($fecha)
@@ -90,7 +95,7 @@ class Cita
     /**
      * Get fecha
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getFecha()
     {
@@ -101,6 +106,7 @@ class Cita
      * Set deposito
      *
      * @param float $deposito
+     *
      * @return Cita
      */
     public function setDeposito($deposito)
@@ -113,17 +119,18 @@ class Cita
     /**
      * Get deposito
      *
-     * @return float 
+     * @return float
      */
     public function getDeposito()
     {
         return $this->deposito;
     }
-    
+
     /**
      * Set cliente
      *
      * @param \AppBundle\Entity\Cliente $cliente
+     *
      * @return Cita
      */
     public function setCliente(\AppBundle\Entity\Cliente $cliente = null)
@@ -136,7 +143,7 @@ class Cita
     /**
      * Get cliente
      *
-     * @return \AppBundle\Entity\Cliente 
+     * @return \AppBundle\Entity\Cliente
      */
     public function getCliente()
     {
@@ -144,9 +151,10 @@ class Cita
     }
 
     /**
-     * Set tipo_trabajo
+     * Set tipoTrabajo
      *
      * @param \AppBundle\Entity\TipoTrabajo $tipoTrabajo
+     *
      * @return Cita
      */
     public function setTipoTrabajo(\AppBundle\Entity\TipoTrabajo $tipoTrabajo = null)
@@ -157,9 +165,9 @@ class Cita
     }
 
     /**
-     * Get tipo_trabajo
+     * Get tipoTrabajo
      *
-     * @return \AppBundle\Entity\TipoTrabajo 
+     * @return \AppBundle\Entity\TipoTrabajo
      */
     public function getTipoTrabajo()
     {
@@ -170,6 +178,7 @@ class Cita
      * Set artista
      *
      * @param \AppBundle\Entity\Artista $artista
+     *
      * @return Cita
      */
     public function setArtista(\AppBundle\Entity\Artista $artista = null)
@@ -182,7 +191,7 @@ class Cita
     /**
      * Get artista
      *
-     * @return \AppBundle\Entity\Artista 
+     * @return \AppBundle\Entity\Artista
      */
     public function getArtista()
     {
@@ -190,32 +199,33 @@ class Cita
     }
 
     /**
-     * Add trabajos
+     * Add trabajo
      *
-     * @param \AppBundle\Entity\Trabajo $trabajos
+     * @param \AppBundle\Entity\Trabajo $trabajo
+     *
      * @return Cita
      */
-    public function addTrabajo(\AppBundle\Entity\Trabajo $trabajos)
+    public function addTrabajo(\AppBundle\Entity\Trabajo $trabajo)
     {
-        $this->trabajos[] = $trabajos;
+        $this->trabajos[] = $trabajo;
 
         return $this;
     }
 
     /**
-     * Remove trabajos
+     * Remove trabajo
      *
-     * @param \AppBundle\Entity\Trabajo $trabajos
+     * @param \AppBundle\Entity\Trabajo $trabajo
      */
-    public function removeTrabajo(\AppBundle\Entity\Trabajo $trabajos)
+    public function removeTrabajo(\AppBundle\Entity\Trabajo $trabajo)
     {
-        $this->trabajos->removeElement($trabajos);
+        $this->trabajos->removeElement($trabajo);
     }
 
     /**
      * Get trabajos
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return Collection
      */
     public function getTrabajos()
     {
